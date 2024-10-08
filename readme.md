@@ -320,3 +320,5 @@ echo '<pre>'; print_r($trackingRes); echo '</pre>'; die();
 ## License
 
 PHP UPS API is licensed under [The MIT License (MIT)](LICENSE).
+
+Test.
