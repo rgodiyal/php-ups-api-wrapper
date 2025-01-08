@@ -12,6 +12,7 @@ Latest OAuth 2.0 Rest API Wrapper for UPS web services.
 5. [Tracking API](#tracking)
 6. [Documentation](#api-docs)
 7. [License](#license-section)
+8. [Support the Project](#support-section)
 
 <a name="requirements"></a>
 ## Requirements
@@ -320,3 +321,11 @@ echo '<pre>'; print_r($trackingRes); echo '</pre>'; die();
 ## License
 
 PHP UPS API is licensed under [The MIT License (MIT)](LICENSE).
+
+<a name="support-section"></a>
+## Support the Project
+
+If you enjoy using this package, please consider [buying me a coffee](https://www.buymeacoffee.com/ragod). Your support keeps the development going! ☕
+
+[![Buy Me a Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/ragod)
+
