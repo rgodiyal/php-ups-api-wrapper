@@ -7,12 +7,12 @@ Latest OAuth 2.0 Rest API Wrapper for UPS web services.
 
 1. [Requirements](#requirements)
 2. [Installation](#installation)
-3. [Address Validation](#addressvalidation)
-4. [Create Shipment | Shipping Label](#create-shipment)
-5. [Tracking API](#tracking)
-6. [Documentation](#api-docs)
-7. [License](#license-section)
-8. [Support the Project](#support-section)
+3. [Address Validation](#address-validation)
+4. [Create Shipment | Shipping Label](#create-shipment--shipping-label)
+5. [Tracking API](#tracking-api)
+6. [Documentation](#documentation)
+7. [License](#license)
+8. [Support the Project](#support-the-project)
 
 <a name="requirements"></a>
 ## Requirements
@@ -30,7 +30,7 @@ Install with composer
   composer require rahul-godiyal/php-ups-api-wrapper
 ```
 
-<a name="addressvalidation"></a>
+<a name="address-validation"></a>
 ## Address Validation
 ```php
 <?php
@@ -71,7 +71,7 @@ echo '</pre>';
 die();
 ```
 
-<a name="create-shipment"></a>
+<a name="create-shipment--shipping-label"></a>
 ## Create Shipment | Shipping Label
 ```php
 <?php
@@ -282,7 +282,7 @@ echo '<pre>'; print_r($shipRes); echo '</pre>';
 
 ```
 
-<a name="tracking"></a>
+<a name="tracking-api"></a>
 ## Tracking API
 ```php
 <?php
@@ -312,17 +312,17 @@ $trackingRes = $tracking
 echo '<pre>'; print_r($trackingRes); echo '</pre>'; die();
 ```
 
-<a name="api-docs"></a>
+<a name="documentation"></a>
 ## Documentation
 [UPS API docs](https://developer.ups.com/catalog)
 
 
-<a name="license-section"></a>
+<a name="license"></a>
 ## License
 
 PHP UPS API is licensed under [The MIT License (MIT)](LICENSE).
 
-<a name="support-section"></a>
+<a name="support-the-project"></a>
 ## Support the Project
 
 If you enjoy using this package, please consider [buying me a coffee](https://www.buymeacoffee.com/ragod). Your support keeps the development going! ☕
