@@ -12,6 +12,7 @@ class Shipment
     private PaymentInformation $paymentInformation;
     private Service $service;
     private Package $package;
+    private array $additional = [];
 
     public function __construct()
     {
@@ -107,6 +108,12 @@ class Shipment
         return $this->package;
     }
 
+    public function setAdditional(array $additional): self
+    {
+        $this->additional = $additional;
+        return $this;
+    }
+
     public function toArray(): array
     {
         $shipment = [
@@ -115,6 +122,8 @@ class Shipment
             "Service" => $this->service->toArray(),
             "Package" => $this->package->toArray()
         ];
+
+        
 
         if ($this->description) {
             $shipment['Description'] = $this->description;
@@ -131,6 +140,11 @@ class Shipment
         if ($this->returnService->exists()) {
             $shipment["ReturnService"] = $this->returnService->toArray();
         }
+
+        if($this->additional > 0) {
+            $shipment = array_merge($shipment,$this->additional);
+        }
+       
 
         return $shipment;
     }
