@@ -13,6 +13,7 @@ class Shipment
     private Service $service;
     private Package $package;
     private array $additional = [];
+    private array $packages = [];
 
     public function __construct()
     {
@@ -102,6 +103,12 @@ class Shipment
         $this->package = $package;
         return $this;
     }
+    /*  */
+    public function setPackages(array $packages): self
+    {
+        $this->packages = $packages;
+        return $this;
+    }
 
     public function getPackage(): Package
     {
@@ -119,9 +126,23 @@ class Shipment
         $shipment = [
             "Shipper" => $this->shipper->toArray(),
             "ShipTo" => $this->shipTo->toArray(),
-            "Service" => $this->service->toArray(),
-            "Package" => $this->package->toArray()
+            "Service" => $this->service->toArray()/*,
+           "Package" => $this->package->toArray()*/
         ];
+
+
+
+        if(isset($this->package)) {
+        $shipment["Package"] = $this->package->toArray();
+        } elseif($this->packages) {
+            foreach($this->packages as $_package) {
+            $packages[] = $_package->toArray();
+            }
+            $shipment["Package"]=$packages;
+
+        }
+        
+
 
         
 
