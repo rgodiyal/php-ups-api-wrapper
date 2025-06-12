@@ -4,7 +4,7 @@ namespace RahulGodiyal\PhpUpsApiWrapper\Entity;
 
 class ShipmentCharge
 {
-    const TYPE = "01";
+    private $type = "01";
 
     private BillShipper $billShipper;
 
@@ -29,10 +29,14 @@ class ShipmentCharge
         return $this->billShipper;
     }
 
+    public function setType($type) {
+        $this->type = $type;
+    }
+
     public function toArray(): array
     {
         $shipmentCharge = [
-            "Type" => self::TYPE
+            "Type" => $this->type
         ];
 
         if ($this->billShipper->exists()) {
