@@ -6,6 +6,7 @@ class ShipTo
 {
     private ?string $name;
     private string $attentionName = "";
+    private string $email = "";
     private Phone $phone;
     private Address $address;
     private string $residential = "";
@@ -14,7 +15,7 @@ class ShipTo
     {
         $this->phone = new Phone();
     }
-    
+
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -46,6 +47,17 @@ class ShipTo
     public function getPhone(): Phone
     {
         return $this->phone;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
     }
 
     public function setAddress(Address $address): self
@@ -83,6 +95,10 @@ class ShipTo
 
         if ($this->phone->exists()) {
             $shipTo["Phone"] = $this->phone->toArray();
+        }
+
+        if ($this->email) {
+            $shipTo["EmailAddress"] = $this->email;
         }
 
         if ($this->residential) {

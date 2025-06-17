@@ -7,6 +7,7 @@ class Shipper
     private ?string $name;
     private string $attentionName = "";
     private string $taxIdentificationNumber = "";
+    private string $email = "";
     private Phone $phone;
     private ?string $shipperNumber;
     private string $faxNumber = "";
@@ -61,6 +62,17 @@ class Shipper
         return $this->phone;
     }
 
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
     public function setShippingNumber(string $shipper_number): self
     {
         $this->shipperNumber = $shipper_number;
@@ -112,6 +124,10 @@ class Shipper
 
         if ($this->phone->exists()) {
             $shipper["Phone"] = $this->phone->toArray();
+        }
+
+        if ($this->email) {
+            $shipTo["EmailAddress"] = $this->email;
         }
 
         if ($this->faxNumber) {
