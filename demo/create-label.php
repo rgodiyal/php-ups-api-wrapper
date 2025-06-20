@@ -48,6 +48,7 @@ $shipper->setName("Shipper Test");
 $shipper->setAttentionName(""); // optional
 $shipper->setTaxIdentificationNumber(""); // optional
 $shipper->setPhone($phone);
+$shipper->setEmail(""); // optional
 $shipper->setShippingNumber("123456");
 $shipper->setFaxNumber(""); // optional
 $shipper->setAddress($address);
@@ -68,6 +69,7 @@ $shipTo = new ShipTo();
 $shipTo->setName("Shipper Test");
 $shipTo->setAttentionName(""); // optional
 $shipTo->setPhone($phone);
+$shipTo->setEmail(""); // optional
 $shipTo->setAddress($address);
 $shipTo->setResidential(""); // optional
 /************ End ShipTo **********/
@@ -114,7 +116,7 @@ $packaging->setCode(Packaging::CUSTOMER_SUPPLIED_PACKAGE);
 $packaging->setDescription("Ups Letter"); // optional
 
 // Dimensions can be optional
-$unitOfMeasurement = new UnitOfMeasurement(); 
+$unitOfMeasurement = new UnitOfMeasurement();
 $unitOfMeasurement->setCode(UnitOfMeasurement::INCHES);
 $unitOfMeasurement->setDescription("Inches"); // optional
 
