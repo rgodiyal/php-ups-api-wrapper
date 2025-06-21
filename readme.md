@@ -10,9 +10,10 @@ Latest OAuth 2.0 Rest API Wrapper for UPS web services.
 3. [Address Validation](#address-validation)
 4. [Create Shipment | Shipping Label](#create-shipment--shipping-label)
 5. [Tracking API](#tracking-api)
-6. [Documentation](#documentation)
-7. [License](#license)
-8. [Support the Project](#support-the-project)
+6. [Void Shipment](#void-shipment)
+7. [Documentation](#documentation)
+8. [License](#license)
+9. [Support the Project](#support-the-project)
 
 <a name="requirements"></a>
 ## Requirements
@@ -282,6 +283,37 @@ echo '<pre>'; print_r($shipRes); echo '</pre>';
 
 ```
 
+<a name="void-shipment"></a>
+## Void Shipment
+```php
+<?php
+
+use RahulGodiyal\PhpUpsApiWrapper\Entity\VoidShipmentQuery;
+use RahulGodiyal\PhpUpsApiWrapper\VoidShipment;
+
+require_once('./vendor/autoload.php');
+
+$client_id = "******************************"; // UPS Client ID
+$client_secret = "*****************************************"; // UPS Client Secret
+
+// Shipment identification number to void
+$shipmentIdentificationNumber = "1Z12345E0205271688"; // Replace with actual shipment ID
+
+/********* Void Shipment Query *********/
+$query = new VoidShipmentQuery(); // optional
+$query->setTrackingNumber(""); // optional - if you want to include tracking number in the query
+/********* End Void Shipment Query *********/
+
+$voidShipment = new VoidShipment();
+$voidShipmentRes = $voidShipment
+    ->setQuery($query) // optional
+    ->setShipmentIdentificationNumber($shipmentIdentificationNumber)
+    // ->setMode('PROD') // optional - uncomment for production
+    ->voidShipment($client_id, $client_secret);
+
+echo '<pre>'; print_r($voidShipmentRes); echo '</pre>'; die();
+```
+
 <a name="tracking-api"></a>
 ## Tracking API
 ```php
@@ -328,4 +360,3 @@ PHP UPS API is licensed under [The MIT License (MIT)](LICENSE).
 If you enjoy using this package, please consider [buying me a coffee](https://www.buymeacoffee.com/ragod). Your support keeps the development going! ☕
 
 [![Buy Me a Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/ragod)
-
