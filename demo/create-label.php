@@ -11,6 +11,7 @@ use RahulGodiyal\PhpUpsApiWrapper\Entity\PackageWeight;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\Packaging;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\PaymentInformation;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\Phone;
+use RahulGodiyal\PhpUpsApiWrapper\Entity\ReferenceNumber;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\Request;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\Service;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\ShipFrom;
@@ -137,14 +138,21 @@ $packageWeight->setUnitOfMeasurement($unitOfMeasurement);
 $packageWeight->setWeight("5");
 // End Package Weight
 
+$packageReferenceNumber = new ReferenceNumber(); // optional
+$packageReferenceNumber->setValue("XXXXXXXXX"); // optional
+
 $package = new Package();
 $package->setDescription(""); // optional
 $package->setPackaging($packaging);
 $package->setDimensions($dimensions); // optional
 $package->setPackageWeight($packageWeight); // optional
+$package->setReferenceNumber($packageReferenceNumber); //optional
 /************ End Package **********/
 
 /************ Shipment **********/
+$shipmentReferenceNumber = new ReferenceNumber(); // optional
+$shipmentReferenceNumber->setValue("XXXXXXXXX"); // optional
+
 $shipment = new Shipment();
 $shipment->setDescription("Ship WS test");
 $shipment->setShipper($shipper);
@@ -153,6 +161,7 @@ $shipment->setShipFrom($shipFrom);
 $shipment->setPaymentInformation($paymentInformation);
 $shipment->setService($service);
 $shipment->setPackage($package);
+$shipment->setReferenceNumber($shipmentReferenceNumber); // optional
 /************ End Shipment **********/
 
 /************ Label Specification **********/
