@@ -13,12 +13,14 @@ class Shipment
     private Service $service;
     private Package $package;
     private ReferenceNumber $referenceNumber;
+    private ShippingRatingOptions $shippingRatingOptions;
 
     public function __construct()
     {
         $this->returnService = new ReturnService();
         $this->paymentInformation = new PaymentInformation();
         $this->referenceNumber = new ReferenceNumber();
+        $this->shippingRatingOptions = new ShippingRatingOptions();
     }
 
     public function setDescription(string $description): self
@@ -120,6 +122,17 @@ class Shipment
         return $this->package;
     }
 
+    public function setShippingRatingOptions(ShippingRatingOptions $shippingRatingOptions): self
+    {
+        $this->shippingRatingOptions = $shippingRatingOptions;
+        return $this;
+    }
+
+    public function getShippingRatingOptions(): ShippingRatingOptions
+    {
+        return $this->shippingRatingOptions;
+    }
+
     public function toArray(): array
     {
         $shipment = [
@@ -147,6 +160,10 @@ class Shipment
 
         if ($this->referenceNumber->exists()) {
             $shipment["ReferenceNumber"] = $this->referenceNumber->toArray();
+        }
+        
+        if ($this->shippingRatingOptions->exists()) {
+            $shipment["ShipmentRatingOptions"] = $this->shippingRatingOptions->toArray();
         }
 
         return $shipment;

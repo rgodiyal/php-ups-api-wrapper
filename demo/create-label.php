@@ -20,6 +20,7 @@ use RahulGodiyal\PhpUpsApiWrapper\Entity\ShipmentCharge;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\ShipmentRequest;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\Shipper;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\ShipQuery;
+use RahulGodiyal\PhpUpsApiWrapper\Entity\ShippingRatingOptions;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\ShipTo;
 use RahulGodiyal\PhpUpsApiWrapper\Entity\UnitOfMeasurement;
 use RahulGodiyal\PhpUpsApiWrapper\Ship;
@@ -162,6 +163,13 @@ $shipment->setPaymentInformation($paymentInformation);
 $shipment->setService($service);
 $shipment->setPackage($package);
 $shipment->setReferenceNumber($shipmentReferenceNumber); // optional
+
+/************ ShippingRatingOptions **********/
+$shippingRatingOptions = new ShippingRatingOptions(); // optional
+$shippingRatingOptions->setNegotiatedRatesIndicator(true); // optional
+$shipment->setShippingRatingOptions($shippingRatingOptions); // optional
+/************ End ShippingRatingOptions **********/
+
 /************ End Shipment **********/
 
 /************ Label Specification **********/
