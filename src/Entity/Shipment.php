@@ -12,11 +12,13 @@ class Shipment
     private PaymentInformation $paymentInformation;
     private Service $service;
     private Package $package;
+    private ReferenceNumber $referenceNumber;
 
     public function __construct()
     {
         $this->returnService = new ReturnService();
         $this->paymentInformation = new PaymentInformation();
+        $this->referenceNumber = new ReferenceNumber();
     }
 
     public function setDescription(string $description): self
@@ -28,6 +30,17 @@ class Shipment
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    public function setReferenceNumber(ReferenceNumber $referenceNumber): self
+    {
+        $this->referenceNumber = $referenceNumber;
+        return $this;
+    }
+
+    public function getReferenceNumber(): ReferenceNumber
+    {
+        return $this->referenceNumber;
     }
 
     public function setReturnService(ReturnService $returnService): self
@@ -130,6 +143,10 @@ class Shipment
 
         if ($this->returnService->exists()) {
             $shipment["ReturnService"] = $this->returnService->toArray();
+        }
+
+        if ($this->referenceNumber->exists()) {
+            $shipment["ReferenceNumber"] = $this->referenceNumber->toArray();
         }
 
         return $shipment;
