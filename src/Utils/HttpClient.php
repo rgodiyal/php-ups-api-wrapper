@@ -33,7 +33,7 @@ class HttpClient
         return $this;
     }
 
-    public function fetch(): object
+    public function fetch(): ?object
     {
         try {
             $curl = curl_init();
